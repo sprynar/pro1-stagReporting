@@ -31,6 +31,14 @@ public class DepartmentStatsReporting {
                 .count();
     }
 
+    private static long teacherScore(long teacherId, ActionsList actionsList) {
+        // TODO 2.3: součet obsazení všech akcí daného učitele
+        return actionsList.items.stream()
+                .filter(a -> a.teacherId == teacherId)
+                .mapToLong(a -> a.studentsCount)
+                .sum();
+    }
+
     private static long maxTeacherScore(ActionsList actionsList) {
         // TODO 2.4: nejvyšší teacherScore mezi všemi učiteli
         return actionsList.items.stream()
@@ -39,13 +47,5 @@ public class DepartmentStatsReporting {
                 .map(id -> teacherScore(id, actionsList))
                 .max()
                 .orElse(0);
-    }
-
-    private static long teacherScore(long teacherId, ActionsList actionsList) {
-        // TODO 2.3: součet obsazení všech akcí daného učitele
-        return actionsList.items.stream()
-                .filter(a -> a.teacherId == teacherId)
-                .mapToLong(a -> a.studentsCount)
-                .sum();
     }
 }
