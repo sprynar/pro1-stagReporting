@@ -22,7 +22,6 @@ public class TeacherBooksReporting {
         var reportItems = new ArrayList<CourseBook>();
 
         // TODO 1.3: Pro každý předmět získej z dataSource ještě seznam knih
-        Type bookListType = new TypeToken<List<Book>>(){}.getType();
 
         coursesList.items.forEach(course -> {
             var booksJson = dataSource.getLiteraturaPredmetu(course.code, katedra);
