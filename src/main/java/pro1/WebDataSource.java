@@ -51,6 +51,11 @@ public class WebDataSource implements DataSource {
         String url = String.format(
                 "https://stag-demo.uhk.cz/ws/services/rest2/kvalifikacniprace/getKvalifikacniPrace?rokObhajoby=%s&outputFormat=JSON&katedra=%s",
                 rokObhajoby, katedra);
-        return getFromUri(url); // use whatever HTTP method your WebDataSource already uses
+        return getFromUri(url);
     }
+    @Override
+    public String getTerminyZkousek2(String katedra) {
+            String url = String.format("https://stag-demo.uhk.cz/ws/services/rest2/terminy/getTerminyZkousek?katedra=%s&outputFormat=JSON", katedra);
+            return getFromUri(url);
+        }
 }
