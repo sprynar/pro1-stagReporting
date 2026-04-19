@@ -16,6 +16,7 @@ public class TeacherBooksReportingTest
     void test01() throws IOException, JSONException {
         var actual = TeacherBooksReporting.GetReport(new TestDataSource(), "2025", 247582, "KIKM");
         var actualJson = new Gson().toJson(actual);
+        System.out.println(actualJson);
         var expectedJson = ResourcesUtils.readResourceFile("expectedReports/teacherBooks_2025_247582_KIKM.json");
         JSONAssert.assertEquals(
                 expectedJson,

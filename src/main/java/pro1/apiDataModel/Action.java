@@ -11,4 +11,7 @@ public class Action {
 
     @SerializedName("obsazeni")
     public long studentsCount;
+
+    @SerializedName("denZkr")
+    public String dayShort;
 }
